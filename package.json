@@ -1,0 +1,15 @@
+{
+  "name": "electronapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron main.js",
+    "asa" : "asar pack ./ ./app.asar",
+    "build" : "electron-packager .. --platform=win32 --arch=x64 --electron-version=1.4.13 --icon=images/niwatori_400x400.png"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
