@@ -4,10 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "electron main.js"
+    "test": "electron main.js",
+    "build": "node build.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron-packager": "^9.1.0"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13"
   }
 }

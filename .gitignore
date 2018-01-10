@@ -1,2 +1,3 @@
 *.asar
-output/
+production/
+node_modules/

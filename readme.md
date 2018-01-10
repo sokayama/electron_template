@@ -1,10 +1,17 @@
-# ビルド方法
+# 各ファイル
+* main.js
+    - サーバ側
 
-## 前準備
-```
-npm install electron-prebuilt -g
-npm install asar -g
-```
+* index.html
+    - アプリの見た目。app.jsを呼んでる
+
+* app.js
+    - クライアント側
+
+* build.js
+    - ビルド設定
+
+# ビルド方法
 
 ## ビルド
 1. node_modulesをインストール
@@ -12,24 +19,7 @@ npm install asar -g
 npm install
 ```
 
-2. asar作る
+2. exeを作る
 ```
-asar pack ./ ./appname.asar
+npm run build
 ```
-
-3. exe作る
-```
-mkdir output
-cd output
-electron-packager .. --platform=win32 --arch=x64 --electron-version=1.4.13
-```
-
-# 各ファイル
-* main.js
-    - サーバ側。websocketでコマンドの文字列を受け取って実行する
-
-* index.html
-    - アプリの見た目。app.jsを呼んでる
-
-* app.js
-    - クライアント側。websocketでコマンドの文字列を送る
