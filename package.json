@@ -9,11 +9,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "electron-packager": "^9.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "electron-prebuilt": "^1.4.13",
-    "electron-rebuild": "^1.7.3"
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.5"
   }
 }
