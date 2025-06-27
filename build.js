@@ -1,15 +1,47 @@
-'use strict';
-
-const builder = require('electron-builder');
+const { build, Platform } = require('electron-builder');
+const { Arch } = require('builder-util');
 const fs = require('fs');
-const packagejson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const os = require('os');
 
-builder.build({
-    platform: 'win',
-    config: {
-        'appId': `com.example.${packagejson.name}`,
-        'win': {
-            'target': 'zip',
-        },
-    },
-});
+const packagejson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+const currentOS = os.platform();
+
+let targets;
+
+if (currentOS === 'win32') {
+  targets = Platform.WINDOWS.createTarget('zip', Arch.x64);
+} else if (currentOS === 'darwin') {
+  targets = Platform.MAC.createTarget('dmg', Arch.x64);
+} else {
+  console.error('Unsupported OS:', currentOS);
+  process.exit(1);
+}
+
+const config = {
+  appId: `com.example.${packagejson.name}`,
+  productName: packagejson.name,
+  directories: {
+    output: 'dist',
+  },
+  win: {
+    target: ['zip'],
+    sign: false,
+    signAndEditExecutable: false,
+  },
+  mac: {
+    target: ['dmg'],
+    sign: false,
+  },
+};
+
+const main = async () => {
+  try {
+    await build({ targets, config });
+    console.log('Build completed successfully');
+  } catch (error) {
+    console.error('Build failed:', error);
+    process.exit(1);
+  }
+};
+
+main();
