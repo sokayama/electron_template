@@ -25,12 +25,10 @@ const config = {
   },
   win: {
     target: ['zip'],
-    sign: false,
     signAndEditExecutable: false,
   },
   mac: {
     target: ['dmg'],
-    sign: false,
   },
 };
 
