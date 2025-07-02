@@ -1,0 +1,11 @@
+{
+  "name": "native-addon",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "npm install node-addon-api",
+    "build": "powershell -Command \"$env:npm_config_target='37.1.0'; $env:npm_config_arch='x64'; $env:npm_config_runtime='electron'; $env:npm_config_disturl='https://electronjs.org/headers'; node-gyp rebuild; New-Item -ItemType Directory -Force ../electron_app/native_modules; Copy-Item build/Release/myaddon.node ../electron_app/native_modules/\""
+  },
+  "dependencies": {
+    "node-addon-api": "^8.4.0"
+  }
+}

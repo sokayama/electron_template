@@ -3,6 +3,11 @@ const DEV_MODE = false;
 
 const { app, BrowserWindow } = require('electron');
 
+const addon = require('./native_modules/myaddon.node');
+console.log(addon.hello());
+
+// console.log(process.versions);
+
 /* 全てのウィンドウが閉じたら終了 */
 app.on('window-all-closed', ()=>{
     if (process.platform != 'darwin') {

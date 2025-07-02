@@ -1,0 +1,4 @@
+*.asar
+dist/
+node_modules/
+native_modules/
