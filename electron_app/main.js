@@ -3,7 +3,16 @@ const DEV_MODE = false;
 
 const { app, BrowserWindow } = require('electron');
 
-const addon = require('./native_modules/myaddon.node');
+const path = require('path');
+
+console.log('=========================');
+console.log(`process.arch = ${process.arch}`);
+console.log(`process.versions.electron = ${process.versions.electron}`);
+console.log(`process.versions.node = ${process.versions.node}`);
+console.log('=========================');
+
+const addonPath = path.join(app.getAppPath(), 'native_modules', 'myaddon.node');
+const addon = require(addonPath);
 console.log(addon.hello());
 
 // console.log(process.versions);

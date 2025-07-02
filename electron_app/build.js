@@ -11,7 +11,7 @@ let targets;
 if (currentOS === 'win32') {
   targets = Platform.WINDOWS.createTarget('zip', Arch.x64);
 } else if (currentOS === 'darwin') {
-  targets = Platform.MAC.createTarget('dmg', Arch.x64);
+  targets = Platform.MAC.createTarget('dmg', Arch.arm64);
 } else {
   console.error('Unsupported OS:', currentOS);
   process.exit(1);

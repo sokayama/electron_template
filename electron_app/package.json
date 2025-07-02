@@ -7,6 +7,11 @@
     "test": "electron main.js",
     "build": "node build.js"
   },
+  "build": {
+    "files": [
+      "**/*"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
