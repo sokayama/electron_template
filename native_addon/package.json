@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "install": "npm install node-addon-api",
-    "build": "powershell -Command \"$env:npm_config_target='37.1.0'; $env:npm_config_arch='x64'; $env:npm_config_runtime='electron'; $env:npm_config_disturl='https://electronjs.org/headers'; node-gyp rebuild; New-Item -ItemType Directory -Force ../electron_app/native_modules; Copy-Item build/Release/myaddon.node ../electron_app/native_modules/\""
+    "build-win": "powershell -Command \"$env:npm_config_target='37.1.0'; $env:npm_config_arch='x64'; $env:npm_config_runtime='electron'; $env:npm_config_disturl='https://electronjs.org/headers'; node-gyp rebuild; New-Item -ItemType Directory -Force ../electron_app/native_modules; Copy-Item build/Release/myaddon.node ../electron_app/native_modules/\"",
+    "build-mac": "export npm_config_target=37.1.0 npm_config_arch=x64 npm_config_runtime=electron npm_config_disturl=https://electronjs.org/headers && node-gyp rebuild && mkdir -p ../electron_app/native_modules && cp build/Release/myaddon.node ../electron_app/native_modules/",
+    "build": "npm run build-win || npm run build-mac"
   },
   "dependencies": {
     "node-addon-api": "^8.4.0"
